@@ -1,0 +1,30 @@
+body {
+    background-color: pink;
+
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+li {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 15px;
+}
+
+h1,
+h2 {
+    color: purple;
+}
+
+a:hover {
+    background-color: purple;
+}
+
+.flex-container {
+    display: flex;
+    gap: 70px;
+    justify-content: left;
+    align-content: flex-start;
+}
