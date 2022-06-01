@@ -98,14 +98,14 @@
  
 
 // // 7. 
-function department(language){ 
-    let numberOfDepartments = 5;  
-    console.log(numberOfDepartments) //5 - local variable is assigned 5
-    function software(){ 
-        let language = "javascript"; 
-        console.log(language); // it doesn't write anything as output because function didn't call
-    } 
-    console.log(language) // java - "java" is sent as parameter while running the function
-} 
-department("java"); 
+// function department(language){ 
+//     let numberOfDepartments = 5;  
+//     console.log(numberOfDepartments) //5 - local variable is assigned 5
+//     function software(){ 
+//         let language = "javascript"; 
+//         console.log(language); // it doesn't write anything as output because function didn't call
+//     } 
+//     console.log(language) // java - "java" is sent as parameter while running the function
+// } 
+// department("java"); 
 
