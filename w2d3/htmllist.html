@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        let array = [{ name: "Fatma", age: 33 }, { name: "Nuray", age: 55 }, { name: "Tulay", age: 53 }];
+        $(function () {
+
+            array.sort((a,b)=>a.age>b.age?1:-1);
+            array=  array.filter(a =>a.age>50);
+            console.log(array.reduce((acc, age)=>acc+age.name, ""));
+            for (let obj of array) {
+                let row = document.createElement("tr");
+                for (let key in obj) {
+                    let column = document.createElement("td");
+                    column.append(obj[key]);
+                    row.append(column);
+                }
+                table1.append(row);
+            }
+
+            let formObj = {
+                type: "text",
+                id: "textID",
+                value: ""
+            }
+            let input_area = document.createElement("input");
+            input_area.setAttribute("type", formObj.type);
+            input_area.setAttribute("id", formObj.id);
+            input_area.setAttribute("value", formObj.value);
+            document.body.append(input_area);
+            $("#"+formObj.id).keyup(function () {
+                formObj.value = this.value;
+                console.log(formObj)
+            })
+        });
+    </script>
+</head>
+<body>
+    <table id="table1"></table>
+</body>
+</html>
