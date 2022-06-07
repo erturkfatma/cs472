@@ -1,4 +1,4 @@
-function findoddnumbers(array) {
+function findOddNumbers(array) {
     let result = [];
     for (let i = 0; i < array.length; i++) {
         if ((i % 2) != 0) {
@@ -8,7 +8,7 @@ function findoddnumbers(array) {
     return result;
 };
 
-function findevennumbers(array) {
+function findEvenNumbers(array) {
     let result = [];
     for (let i = 0; i < array.length; i++) {
         if ((array[i] % 2) == 0) {
@@ -18,7 +18,7 @@ function findevennumbers(array) {
     return result;
 };
 
-function finddivisible4(array) {
+function findDivisible4(array) {
     let result = [];
     for (let i = 0; i < array.length; i++) {
         if ((array[i] % 4) == 0) {
@@ -58,7 +58,7 @@ function findDivisible4NumbersSum(array) {
     return sum;
 };
 
-function finduniquenumbers(array) {
+function findUniqueNumbers(array) {
     let result = [];
     for (let i = 0; i < array.length; i++) {
         if (result.indexOf(array[i]) == -1) {
@@ -68,7 +68,7 @@ function finduniquenumbers(array) {
     return result;
 };
 
-function findtypeofarray(array) {
+function findTypeOfArray(array) {
     let result = [];
     for (let i = 0; i < array.length; i++) {
         result.push(typeof arr[i]);
@@ -76,7 +76,7 @@ function findtypeofarray(array) {
     return result;
 };
 
-function destructureArr(array) {
+function destructureArray(array) {
     let result = {};
     for (let i = 0; i < array.length; i++) {
         result[typeof array[i] + i] = array[i];
@@ -90,7 +90,7 @@ function firstOddNumberIndex(arr) {
     }
 };
 
-function stringtoarray(string) {
+function stringToArray(string) {
     let result = [];
     for (let i = 0; i < string.length; i++) {
         result.push(string.charAt(i));
@@ -98,7 +98,7 @@ function stringtoarray(string) {
     return result;
 };
 
-function arraytostring(array) {
+function arrayToString(array) {
     let str = "";
     for (let i = 0; i < array.length; i++) {
         str += array[i];
@@ -106,7 +106,7 @@ function arraytostring(array) {
     return str;
 };
 
-function objecttoarray(object) {
+function objectToArray(object) {
     let objentries = Object.entries(object);
     let objArr = [];
     for (let [key, value] of objentries) {
@@ -145,7 +145,7 @@ function minifyObject(array){
     return result;
 };
 
-function findoldestpersonage(array){
+function findOldestPersonAge(array){
     let oldestAge = 0;
     for(let person of array){
         if(person.age > oldestAge){
@@ -156,7 +156,7 @@ function findoldestpersonage(array){
     return oldestAge;
 };
 
-function findoyoungestpersonname(array){
+function findYoungestPersonName(array){
     let youngestName = "";
     let youngestAge = 0;
     for(let person of array){
@@ -168,7 +168,7 @@ function findoyoungestpersonname(array){
     return youngestName;
 };
 
-function findbetween(array){
+function findBetween(array){
     for(let person of array){
         if(person.age >= 16 && person.age <=17){
             return person;
@@ -178,21 +178,21 @@ function findbetween(array){
 
 
 module.exports = {
-    findoddnumbers: findoddnumbers,
-    findevennumbers: findevennumbers,
-    finddivisible4: finddivisible4,
+    findOddNumbers: findOddNumbers,
+    findEvenNumbers: findEvenNumbers,
+    findDivisible4: findDivisible4,
     findOddNumbersSum: findOddNumbersSum,
     findEvenNumbersSum: findEvenNumbersSum,
     findDivisible4NumbersSum: findDivisible4NumbersSum,
-    finduniquenumbers: finduniquenumbers,
-    findtypeofarray: findtypeofarray,
-    destructureArr: destructureArr,
+    findUniqueNumbers: findUniqueNumbers,
+    findTypeOfArray: findTypeOfArray,
+    destructureArray: destructureArray,
     firstOddNumberIndex: firstOddNumberIndex,
-    stringtoarray: stringtoarray,
-    arraytostring: arraytostring,
-    objecttoarray: objecttoarray,
+    stringToArray: stringToArray,
+    arrayToString: arrayToString,
+    objectToArray: objectToArray,
     minifyObject:minifyObject,
-    findoldestpersonage:findoldestpersonage,
-    findoyoungestpersonname:findoyoungestpersonname,
-    findbetween:findbetween
+    findOldestPersonAge:findOldestPersonAge,
+    findYoungestPersonName:findYoungestPersonName,
+    findBetween:findBetween
 }
