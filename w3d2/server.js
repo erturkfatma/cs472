@@ -55,7 +55,7 @@ app.get("/view", (req, res) => {
 
 
 app.use((req, res) => {
-  res.sendFile(__dirname + "/public" + "/notfound.html")
+  res.status(404).sendFile(__dirname + "/" + "/notfound.html")
 })
 
 app.listen(3000, () => {
