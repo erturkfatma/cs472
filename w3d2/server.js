@@ -1,5 +1,7 @@
 const express = require("express");
+const path = require("path");
 const app = express();
+const router = express.Router();
 app.use(express.json());
 app.use(
   express.urlencoded({
@@ -7,57 +9,78 @@ app.use(
   })
 );
 
+app.set("view engine", "ejs");
 
+let formPageCounter = 0;
+let viewPageCounter = 0;
+let notFoundPageCounter = 0;
 
-let data = {};
+router.get("/", (req, res) => {
+  formPageCounter++;
+  res.sendFile(path.join(__dirname + "/public" + "/form.html"));
+});
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "" + "/domassignment.html")
-})
-
-app.post("/Add", (req, res) => {
-  console.log(req.body);
+let data;
+router.post("/AddData", (req, res) => {
   data = req.body;
   res.redirect("/view");
 });
 
-app.get("/view", (req, res) => {
+router.get("/view", (req, res) => {
+  viewPageCounter++;
   res.send(
-    "<label>text1: " +
-    data.text1 +
-    "</label>" +
-    "<br>" +
-    "<label>Radio: " +
-    data.radio1 +
-    "</label>" +
-    "<br>" +
-    "<label>Radio: " +
-    data.radio2 +
-    "</label>" +
-    "<label>Radio: " +
-    data.radio3 +
-    "</label>" +
-    "<label>Checkbox: " +
-    data.check1 +
-    "</label>" +
-    "<label>Checkbox: " +
-    data.check2 +
-    "</label>" +
-    "<label>Checkbox: " +
-    data.check3 +
-    "</label>" +
-    "<label>Textarea: " +
-    data.textarea1 +
-    "</label>" +
-    "<br>"
+    "<label>Input1: " +
+      data.input1 +
+      "</label>" +
+      "<br>" +
+      "<label>Input2: " +
+      data.input2 +
+      "</label>" +
+      "<br>" +
+      "<label>Input3: " +
+      data.input3 +
+      "</label>" +
+      "<br>" +
+      "<label>Selected Value: " +
+      data.selectedValue +
+      "</label>" +
+      "<br>" +
+      "<label>Input4: " +
+      data.input4 +
+      "</label>"
   );
-})
+});
 
+router.get("/statistics", (req, res) => {
+  res.render(path.join(__dirname + "/public" + "/statistics.ejs"), {
+    counter: {
+      formPageCounter: formPageCounter,
+      viewPageCounter: viewPageCounter,
+      notFoundPageCounter: notFoundPageCounter,
+    },
+  });
+});
 
-app.use((req, res) => {
-  res.status(404).sendFile(__dirname + "/" + "/notfound.html")
-})
+router.use((req, res) => {
+  notFoundPageCounter++;
+  res.status(404).sendFile(path.join(__dirname + "/public" + "/notfound.html"));
+});
 
-app.listen(3000, () => {
-  console.log('Your Server is running on 3000');
-})
+router.use((err, req, res) => {
+  res.sendFile(path.join(__dirname + "/public" + "/error.html"));
+  res.send(err.message);
+});
+
+app.use((req, res, next) => {
+  res.on("finish", () => {
+    console.log(`${req.method} ${req.originalUrl} ${res.statusCode}`);
+  });
+  next();
+});
+
+app.use(router);
+
+const port = 3000;
+app.listen(port, () => {
+  console.log(`App listening on port ${port}`);
+});
