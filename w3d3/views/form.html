@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>    
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+    </head>
+    <body>
+        <div id="myDIV" class="content">
+                <h4>Welcome,
+                    <%= username %>!
+                </h4>
+                <p>Do you want to leave the page? <a style="display: inline-block;" class="btn logout" href="/logout">Logout</a></p>
+            </div>
+        </div>
+        <div style="clear: both; float: left; width: 100%;">
+            <form id="myForm" action="cookie" method="post">
+                <h4>Textfield: </h4>
+                <input type="text" id="textfield" name="text1">
+                <h4 >Radio:</h4>
+                <input type="radio" class="radios" name="radio" value="radio" id="radio1" >
+                <label class="ival">Radio1:</label>
+                <input id="radio2" class="radios" name="radio" type="radio">
+                <label class="ival">Radio2:</label>
+                <input id="radio3" class="radios" name="radio" type="radio">
+                <label class="ival">Radio3:</label>
+                <h4 id="courseheader">Checkbox:</h4>
+                <div id="chkBoxes">
+                    <input id="chkbox1" class="chkbox" name="chkbox" type="checkbox">
+                    <label class="ival">check1</label><input id="chkbox2" class="chkbox" name="chkbox" type="checkbox">
+                    <label class="ival">check2</label><input id="chkbox3" class="chkbox" name="chkbox" type="checkbox">
+                    <label class="ival">check3</label><input id="chkbox4" class="chkbox" name="chkbox" type="checkbox">
+                    <label class="ival">check4</label>
+                </div>
+                    <h4>Option:</h4>
+                    <select id="sellist" name="selectlist">
+                        <option value="Option1">Option 1</option>
+                        <option value="Option2">Option 2</option>
+                        <option value="Option3">Option 3</option>
+                    </select>
+                    <h4>Textarea:</h4>
+                    <textarea id="txtArea" name="txtArea" rows="5" cols="30"></textarea>
+                    <br>
+                    <input id="savebutton" class="btn" type="submit" value="Submit">
+            </form>
+        </div>      
+    
+    </body>
+</html>
